@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #c8c8c8;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.main {
+	width: 1024px;
+	margin: auto;
+}
+
+.banner {
+	width: 1024px;
+	height: 100px;
+	background-image: url(../images/tcia-large.png);
+	background-repeat: no-repeat;
+	margin-top: 5px;
+}
+
+.content {
+	width: 1024px;
+	min-height: 460px;
+	position: absolute;
+	background-color: #FFF;
+	margin-top: 10px;
+}
+
+.area_menu {
+	width: 212px;
+	float: left;
+	margin: 0 0 40px 10px;
+	font-size: 14px;
+	padding-top: 20px;
+}
+
+.description {
+	width: 770px;
+	margin: 20px 10px 20px 20px;
+	float: right;
+	font-size: 13px;
+}

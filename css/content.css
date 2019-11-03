@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	box-sizing: border-box;
+	font-family: Verdana, Georgia, Arial, Helvetica, sans-serif;
+}
+
+.title {
+	text-align: right;
+	font-size: 26px;
+	font-weight: bold;
+	color: #ff8c00;
+	border-bottom: 1px solid #666565;
+	padding-bottom: 5px;
+	padding-right: 10px;
+}
+
+.anim {
+	text-align: center;
+	padding-top: 10px;
+}
+
+.anim p {
+	font-size: 10px;
+	text-align: center;
+	color: #666565;
+	margin-left: 160px;
+}
+
+.subcont {
+	text-align: justify;
+	padding-top: 10px;
+	margin: 0 10px 0 10px;
+}
+
+.subcont li {
+	padding: 5px 0 5px 0;
+}
+
+.subcont li .link a {
+	color: #00629B;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.Tvertical {
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	border: #FFF 1px solid;
+}
+
+#label {
+	text-align: left;
+}
+
+#label td {
+	border: #d7d7d7 1px solid;
+}
+
+#center {
+	text-align: center;
+}
+
+.subcont li .link a:hover {
+	color: #fb7a24;
+}
+
+.subcont h3 {
+	margin: 0 0 15px 0;
+	font-size: 18px;
+}
+
+.links {
+	line-height: 25px;
+}
+
+.links a {
+	color: #00629B;
+}
+
+.links a:hover {
+	color: #fb7a24;
+}
+
+.links a:visited {
+	color: #666565;
+}
+
+.member {
+	width: 750px;
+	float: left;
+	margin-top: 5px;
+}
+
+.member {
+	margin-right: 10px;
+	float: left;
+}
+
+.member_data {
+	float: left;
+}
+
+.member_data p {
+	margin-top: 0;
+}
+
+.image {
+	clear: left;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	vertical-align: middle;
+}
+
+h1 {
+	font-weight: bold;
+	color: #ff8c00;
+	font-size: 22px;
+}
+
+h2 {
+	font-weight: bold;
+	color: #ff8c00;
+	font-size: 20px;
+}
