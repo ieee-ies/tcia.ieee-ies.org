@@ -25,5 +25,5 @@ git pull --quiet
 ./members.sh
 
 #commit changes
-git commit -a -m ":construction_worker: automated update"
-git push
+git commit -a -m ":construction_worker: automated update" --quiet
+git push --quiet
