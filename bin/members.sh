@@ -22,13 +22,13 @@ curl -s -L -R  $MEMBERSURL -o "$FILE.tsv"
 
 
 if [ -s $FILE".tsv" ]; then
-
 cat "../template_header.html" >$FILE".html"
 echo "<div class=\"title\">TC-IA Members</div> <div class=\"subcont\">" >> $FILE".html"
 
 
 tail -n +3 $FILE".tsv" \
-| sort -b -d -f -i -k 2,3  -t$'\t'  \
+| sed -e "/^[[:space:]]*$/d" \
+| sort -b -d -f -i -k 2,3  -t$'\t' \
 | awk 'BEGIN { FS = "\t" } ;
 {if (length($8) < 9)
   {
