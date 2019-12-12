@@ -25,5 +25,7 @@ git pull --quiet
 ./members.sh
 
 #commit changes
+git config --local core.autocrlf input
+git config --local core.whitespace trailing-space,space-before-tab,indent-with-non-tab
 git commit -a -m ":construction_worker: automated update" --quiet
 git push --quiet

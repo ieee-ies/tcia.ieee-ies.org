@@ -28,7 +28,7 @@ echo "<div class=\"title\">TC-IA Members</div> <div class=\"subcont\">" >> $FILE
 
 tail -n +3 $FILE".tsv" \
 | sed -e "/^[[:space:]]*$/d" \
-| sort -b -d -f -i -k 2,3  -t$'\t' \
+| sort -u -b -d -f -i -k 2,3  -t$'\t' \
 | awk 'BEGIN { FS = "\t" } ;
 {if (length($8) < 9)
   {

@@ -28,7 +28,7 @@ echo "<div class=\"title\">TC-IA Events </div> <div class=\"subcont\"> <div clas
 
 
 tail -n +2 $FILE".tsv" \
-| sort -b -d -f -i -k 1,3  -t$'\t'  \
+| sort -u -b -d -f -i -k 1,3  -t$'\t'  \
 | awk 'BEGIN { FS = "\t" } ;
 {if (length($2) > 6)
   {
