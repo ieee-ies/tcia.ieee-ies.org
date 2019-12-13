@@ -26,7 +26,7 @@ if [ -s $FILE".tsv" ]; then
 	echo "<div class=\"title\">Recent TC-IA Common Papers</div> <div class=\"subcont\"> <p>" >>$FILE".html"
 
 	DOI="$(tail -n +2 $FILE".tsv" |
-		sort -u -b -d -f -i -k 1,2 -t$'\t' |
+		sort -u -b -d -f -i -k 1,2 -s -t$'\t' |
 		awk 'BEGIN { FS = "\t" } ;
 	{if (length($2) > 1) {print $2}}')"  #no empty lines
 
@@ -39,7 +39,7 @@ if [ -s $FILE".tsv" ]; then
 
 	rm -f $FILE".tsv"
 
-	bibtool -S -k $FILE".bib" -o $FILE"2.bib"
+	bibtool -S -d -q -k $FILE".bib" -o $FILE"2.bib"
 	mv -f $FILE"2.bib" $FILE".bib"
 
 	bibtex2html -nokeys -d -r -o $FILE"2" -i -s ieeetr -nodoc -q -nobibsource -nofooter -noheader -noabstract -nokeywords -nodoi -html-entities -nf url "URL" $FILE".bib"
