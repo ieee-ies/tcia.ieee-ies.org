@@ -24,7 +24,7 @@ if [ -s $FILE".tsv" ]; then
 
 cat "../template_header.html" >$FILE".html"
 
-echo "<div class=\"title\">TC-IA Events </div> <div class=\"subcont\"> <div class=\"links\"> <p> <ul>" >> $FILE".html"
+echo "<div class=\"title\">Events </div> <div class=\"subcont\"> <div class=\"links\"> <p> <ul>" >> $FILE".html"
 
 
 tail -n +2 $FILE".tsv" \
