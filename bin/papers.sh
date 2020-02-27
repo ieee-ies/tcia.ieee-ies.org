@@ -42,7 +42,7 @@ if [ -s $FILE".tsv" ]; then
 	bibtool -S -d -q -k $FILE".bib" -o $FILE"2.bib"
 	mv -f $FILE"2.bib" $FILE".bib"
 
-	bibtex2html -nokeys -d -r -o $FILE"2" -i -s ieeetr -nodoc -q -nobibsource -nofooter -noheader -noabstract -nokeywords -nodoi -html-entities -nf url "URL" $FILE".bib"
+	bibtex2html -nokeys -d -r -o $FILE"2" -i -s IEEEtranTCIA.bst -nolinks -nodoc -q -nobibsource -nofooter -noheader -noabstract -nokeywords -nodoi -html-entities -nf url "URL" $FILE".bib"
 
 	cat $FILE"2.html" >>$FILE".html"
 	\rm -f $FILE"2.html"
