@@ -32,13 +32,13 @@ tail -n +3 $FILE".tsv" \
 | awk 'BEGIN { FS = "\t" } ;
 {if (length($8) < 9)
   {
-  {print "<div class=\"member\"><div class=\"image\"><img align=\"left\" src=\"https://scholar.google.com/citations/images/avatar_scholar_128.png\" width=\"60\" height=\"70\" alt=\"" $2 "\" /></div>"}
+  {print "<div class=\"member\"><div class=\"image\"><img align=\"left\" src=\"https://scholar.google.com/citations/images/avatar_scholar_128.png\" width=\"60\" height=\"60\" alt=\"" $2 "\" /></div>"}
   {print "<div class=\"member_data\">"}
   {print "<p><b>" $2 "</b><br />"}
   }
 else
   {
-  {print "<div class=\"member\"><div class=\"image\"><img align=\"left\" src=\"https://scholar.google.com/citations?view_op=medium_photo&user=" $8 "\" width=\"60\" height=\"70\" alt=\"" $2 "\" /></div>"}
+  {print "<div class=\"member\"><div class=\"image\"><img align=\"left\" src=\"https://scholar.google.com/citations?view_op=medium_photo&user=" $8 "\" width=\"60\" height=\"60\" alt=\"" $2 "\" /></div>"}
   {print "<div class=\"member_data\">"}
   {print "<p><b><a href=\"https://scholar.google.com/citations?user=" $8 "\">" $2 "</a></b><br />"}
   }
