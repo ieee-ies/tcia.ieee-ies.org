@@ -1,5 +1,5 @@
-%
-% The original IEEE template is modified to accomodate IEEE IES TCIA web literature.
+% The original IEEE template is modified to accomodate IEEE IES TC web literature.
+% Stamatis Karnouskos <karnouskos@ieee.org> February 2020
 %
 %% IEEEtran.bst
 %% BibTeX Bibliography Style file for IEEE Journals and Conferences (unsorted)

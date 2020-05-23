@@ -1,7 +1,7 @@
 IEEE IES Technical Committee on Industrial Agents
 ===============
 
-![TCIA logo](images/tcia-large.png)
+![TCIA logo](images/banner.png)
 
 This is a the source of the [IEEE IES TC on Industrial Agents website](https://tcia.ieee-ies.org).
 

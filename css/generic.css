@@ -16,7 +16,7 @@ body {
 .banner {
 	width: 1024px;
 	height: 100px;
-	background-image: url(../images/tcia-large.png);
+	background-image: url(../images/banner.png);
 	background-repeat: no-repeat;
 	margin-top: 5px;
 }
