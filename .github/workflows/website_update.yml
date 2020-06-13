@@ -1,0 +1,30 @@
+name: website_update
+on:
+  push:
+  schedule:
+    - cron:  '1 3 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install requirements
+      run: |
+        sudo apt-get update
+        sudo apt-get -y install curl bibtool bibtex2html
+
+    - name: update website files
+      env:
+        EVENTSURL: ${{ secrets.EVENTSURL }}
+        MEMBERSURL: ${{ secrets.MEMBERSURL }}
+        PAPERSURL: ${{ secrets.PAPERSURL }}
+
+      run: |
+        cd $GITHUB_WORKSPACE
+        git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
+        git config --global user.name "GitHub Robot Action"
+        cd bin
+        source update-all.sh

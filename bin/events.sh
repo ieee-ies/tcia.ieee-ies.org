@@ -6,16 +6,20 @@ FILE='events'
 LANG='C'
 LC_ALL='C'
 
-#Read config file
+
+#Local testing. Read local config if available
 CONFIGFILE='config.conf'
 if [ -f $CONFIGFILE ]
 then
     source $CONFIGFILE
-else
-    echo "$CONFIGFILE does not exist. Please create it."
-    exit 1
 fi
 
+#Make sure secret variables are set properly
+if [ -z ${EVENTSURL+x} ]
+  then
+    echo "Secret variable EVENTSURL is unset. Exiting"
+    exit 1
+fi
 
 # A TSV export from google spreadsheet
 curl -s -L -R  $EVENTSURL -o "$FILE.tsv"
