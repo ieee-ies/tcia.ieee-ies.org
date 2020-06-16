@@ -11,7 +11,7 @@ You only need to provide the Google Docs links as GitHub secrets as explained be
 
 Two spreadsheets are expected one having the members of the TC and another one with the events and papers. There are standard formats which you can easily copy and get started.
 
-Once these 2 files are crated, go in Google Docs to the spreadsheet and:
+Once these 2 files are created, go in Google Docs to the spreadsheet and:
 
 - select **Publish to the web**
 - subsequently select the specific part of that spreadsheet,
