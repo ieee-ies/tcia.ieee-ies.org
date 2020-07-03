@@ -21,6 +21,7 @@ if [ -z ${MEMBERSURL+x} ]
     echo "Secret variable MEMBERSURL is unset. I wont update members.html"
   else
     ./members.sh
+    git add ../members.html
 fi
 
 if [ -z ${EVENTSURL+x} ]
@@ -28,6 +29,7 @@ if [ -z ${EVENTSURL+x} ]
     echo "Secret variable EVENTSURL is unset. I wont update events.html"
   else
     ./events.sh
+    git add ../events.html
 fi
 
 if [ -z ${PAPERSURL+x} ]
@@ -35,6 +37,7 @@ if [ -z ${PAPERSURL+x} ]
     echo "Secret variable PAPERSURL is unset. I wont update papers.html"
   else
     ./papers.sh
+    git add ../papers.html
 fi
 
 
