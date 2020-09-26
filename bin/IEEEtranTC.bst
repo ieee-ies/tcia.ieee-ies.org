@@ -1293,7 +1293,7 @@ FUNCTION {format.editors}
 
 FUNCTION {format.date}
 {
-  month "month" bibinfo.check duplicate$ empty$
+  month "month" bibinfo.check capitalize duplicate$ empty$
   year  "year" bibinfo.check duplicate$ empty$
     { swap$ 'skip$
         { this.to.prev.status
