@@ -10,36 +10,34 @@ git pull --quiet
 
 #Local testing. Read local config if available
 CONFIGFILE='config.conf'
-if [ -f $CONFIGFILE ]
-then
-    source $CONFIGFILE
+if [ -f $CONFIGFILE ]; then
+  source $CONFIGFILE
 fi
 
 #Make sure secret variables are set properly in GitHub
-if [ -z ${MEMBERSURL+x} ]
-  then
-    echo "Secret variable MEMBERSURL is unset. I wont update members.html"
-  else
-    ./members.sh
-    git add ../members.html
+if [ -z ${MEMBERSURL+x} ]; then
+  echo "Secret variable MEMBERSURL is unset. I wont update members.html"
+else
+  echo "Updating members.html"
+  ./members.sh
+  git add ../members.html
 fi
 
-if [ -z ${EVENTSURL+x} ]
-  then
-    echo "Secret variable EVENTSURL is unset. I wont update events.html"
-  else
-    ./events.sh
-    git add ../events.html
+if [ -z ${EVENTSURL+x} ]; then
+  echo "Secret variable EVENTSURL is unset. I wont update events.html"
+else
+  echo "Updating events.html"
+  ./events.sh
+  git add ../events.html
 fi
 
-if [ -z ${PAPERSURL+x} ]
-  then
-    echo "Secret variable PAPERSURL is unset. I wont update papers.html"
-  else
-    ./papers.sh
-    git add ../papers.html
+if [ -z ${PAPERSURL+x} ]; then
+  echo "Secret variable PAPERSURL is unset. I wont update papers.html"
+else
+  echo "Updating papers.html"
+  ./papers.sh
+  git add ../papers.html
 fi
-
 
 #commit changes
 git config --local core.autocrlf input

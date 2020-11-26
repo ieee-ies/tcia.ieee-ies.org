@@ -8,31 +8,28 @@ LC_ALL='C'
 
 #Local testing. Read local config if available
 CONFIGFILE='config.conf'
-if [ -f $CONFIGFILE ]
-then
-    source $CONFIGFILE
+if [ -f $CONFIGFILE ]; then
+  source $CONFIGFILE
 fi
 
 #Make sure secret variables are set properly
-if [ -z ${MEMBERSURL+x} ]
-  then
-    echo "Secret variable MEMBERSURL is unset. Exiting"
-    exit 1
+if [ -z ${MEMBERSURL+x} ]; then
+  echo "Secret variable MEMBERSURL is unset. Exiting"
+  exit 1
 fi
 
 # A TSV export from google spreadsheet
-curl -s -L -R  $MEMBERSURL -o "$FILE.tsv"
-
+echo "Acquiring members dataset ..."
+curl -s -L -R $MEMBERSURL -o "$FILE.tsv"
 
 if [ -s $FILE".tsv" ]; then
-cat "../template_header.html" >$FILE".html"
-echo "<div class=\"title\">Members</div> <div class=\"subcont\">" >> $FILE".html"
+  cat "../template_header.html" >$FILE".html"
+  echo "<div class=\"title\">Members</div> <div class=\"subcont\">" >>$FILE".html"
 
-
-tail -n +3 $FILE".tsv" \
-| sed -e "/^[[:space:]]*$/d" \
-| sort -u -b -d -f -i -k 2,3 -s -t$'\t' \
-| awk 'BEGIN { FS = "\t" } ;
+  tail -n +3 $FILE".tsv" |
+    sed -e "/^[[:space:]]*$/d" |
+    sort -u -b -d -f -i -k 2,3 -s -t$'\t' |
+    awk 'BEGIN { FS = "\t" } ;
 {if (length($8) < 9)
   {
   {print "<div class=\"member\"><div class=\"image\"><img align=\"left\" src=\"https://scholar.google.com/citations/images/avatar_scholar_128.png\" width=\"60\" height=\"60\" alt=\"" $2 "\" /></div>"}
@@ -49,19 +46,17 @@ else
 {print $3 " <br />"}
 {print $4 " <br />"}
 {print "</p></div></div>"}
-' >> $FILE".html"
+' >>$FILE".html"
 
+  echo "</div>" >>$FILE".html"
+  cat "../template_footer.html" >>$FILE".html"
+  #sed -i.bak -e ':a;N;$!ba;s/\n//' $FILE".html"
+  sed -i.bak -e 's/[[:blank:]]*$//' $FILE".html"
+  \rm -f $FILE".html.bak"
 
-echo "</div>" >> $FILE".html"
-cat "../template_footer.html" >>$FILE".html"
-#sed -i.bak -e ':a;N;$!ba;s/\n//' $FILE".html"
-sed -i.bak -e 's/[[:blank:]]*$//' $FILE".html"
-\rm -f $FILE".html.bak"
-
-
-#cleanup
-\rm -f $FILE".tsv"
-\mv -f "$FILE.html" "../$FILE.html"
+  #cleanup
+  \rm -f $FILE".tsv"
+  \mv -f "$FILE.html" "../$FILE.html"
 
 fi
 exit 0

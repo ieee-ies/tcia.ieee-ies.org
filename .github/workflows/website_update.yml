@@ -1,6 +1,5 @@
 name: website_update
 on:
-  push:
   schedule:
     - cron:  '10 1 * * *'
 
