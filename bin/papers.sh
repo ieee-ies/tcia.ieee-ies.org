@@ -40,7 +40,14 @@ if [ -s $FILE".tsv" ]; then
     fi
   done
 
-  rm -f $FILE".tsv"
+  # Avoid removal of papers if BibTex file is empty
+  filesize=$(stat -c%s "$FILE".bib"")
+  if (( filesize < 50 )); then
+    echo "ERROR fetching BibTex data from DOI"
+    exit 0
+  fi
+
+ rm -f $FILE".tsv"
 
   bibtool -S -d -q -k $FILE".bib" -o $FILE"2.bib"
   mv -f $FILE"2.bib" $FILE".bib"
