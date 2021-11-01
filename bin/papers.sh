@@ -35,7 +35,7 @@ if [ -s $FILE".tsv" ]; then
   for i in $DOI; do
     if (echo $i | grep -q "10."); then #valid DOI
       echo "Fetching DOI $i"
-      curl --connect-timeout 60 --keepalive-time 60 --retry 10 --retry-delay 10 --max-time 120 --compressed -sSgLH 'Accept: application/x-bibtex' "https://dx.doi.org/$i" | sed 's/}, /},\n\t/g' >>$FILE".bib"
+      curl --connect-timeout 60 --keepalive-time 60 --retry 10 --retry-delay 10 --max-time 120 --compressed -sSgLH 'Accept: text/bibliography; style=bibtex' "https://dx.doi.org/$i" | sed 's/}, /},\n\t/g' >>$FILE".bib"
       echo >>$FILE".bib"
     fi
   done
