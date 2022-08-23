@@ -25,7 +25,7 @@ curl -s -L -R $PAPERSURL -o $FILE".tsv"
 if [ -s $FILE".tsv" ]; then
 
   cat "../template_header.html" >$FILE".html"
-  echo "<div class=\"title\">Recent Common Papers</div> <div class=\"subcont\"> <p>" >>$FILE".html"
+  echo "<div class=\"title\">Recent Joint Papers</div> <div class=\"subcont\"> <p>" >>$FILE".html"
 
   DOI="$(tail -n +2 $FILE".tsv" |
     sort -u -b -d -f -i -k 1,2 -s -t$'\t' |
